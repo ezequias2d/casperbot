@@ -56,20 +56,23 @@ const NewsList = props => {
         </tbody>
       </table>
 
-      <div className="float-end">
-        <NewsModal
-          variant="primary"
-          news={{
-            title: "Novo Titulo",
-            topic: "Esportes",
-            image: "",
-            description: "Nova descrição",
-            link: "Link para noticia",
-          }}
-          name="Criar"
-          id={props.id}
-          onSave={createHandle} />
-      </div>
+      {
+        hasUser &&
+        <div className="float-end">
+          <NewsModal
+            variant="primary"
+            news={{
+              title: "Novo Titulo",
+              topic: "Esportes",
+              image: "",
+              description: "Nova descrição",
+              link: "Link para noticia",
+            }}
+            name="Criar"
+            id={props.id}
+            onSave={createHandle} />
+        </div>
+      }
     </div>
   );
 };
