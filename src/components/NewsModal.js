@@ -23,7 +23,7 @@ const NewsModal = props => {
       const storageRef = ref(storage, `files/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
-      await uploadTask.on("state_changed",
+      uploadTask.on("state_changed",
         (snapshot) => {
           const progress =
             Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
@@ -42,6 +42,7 @@ const NewsModal = props => {
               description: description,
               link: link,
             }, props.id);
+            setShow(false);
           })
         }
       )
@@ -54,8 +55,8 @@ const NewsModal = props => {
         description: description,
         link: link,
       }, props.id);
+      setShow(false);
     }
-    setShow(false)
   }
 
   const handleClose = () => setShow(false);
