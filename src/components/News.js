@@ -24,12 +24,19 @@ const News = props => {
     }
   }
 
+  const limitString = (str) => {
+    const length = 50;
+    return str.length > length - 3
+      ? `${str.substring(0, length)}...`
+      : str;
+  };
+
   return (
     <tr>
       <th scope="row">{props.id}</th>
-      <td>{props.item.title}</td>
-      <td>{props.item.description}</td>
-      <td>{props.item.topic}</td>
+      <td>{limitString(props.item.title)}</td>
+      <td>{limitString(props.item.description)}</td>
+      <td>{limitString(props.item.topic)}</td>
       <td>
         <a href={props.item.link}>Link</a>
       </td>

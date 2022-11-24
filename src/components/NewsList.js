@@ -1,4 +1,4 @@
-import { collection, onSnapshot, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, addDoc, Timestamp, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase-config";
@@ -15,8 +15,8 @@ const NewsList = props => {
   }, [user])
 
   useEffect(() => {
-    const query = collection(db, 'news');
-    onSnapshot(query, (querySnapshot) => {
+    const q = query(collection(db, 'news'), orderBy('created', 'desc'));
+    onSnapshot(q, (querySnapshot) => {
       setNews(querySnapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data(),
@@ -26,6 +26,7 @@ const NewsList = props => {
 
   const createHandle = async (news) => {
     try {
+      news.created = Timestamp.now();
       await addDoc(collection(db, 'news'), news);
     } catch (err) {
       alert(err);
