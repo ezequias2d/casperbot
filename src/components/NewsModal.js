@@ -59,7 +59,15 @@ const NewsModal = props => {
   }
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
+  const handleShow = () => {
+    setTitle(props.news.title);
+    setDescription(props.news.description);
+    setTopic(props.news.topic);
+    setLink(props.news.link);
+    setImage(props.news.image);
+    setShow(true);
+  }
 
   return (
     <>
