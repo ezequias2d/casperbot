@@ -25,7 +25,7 @@ const News = props => {
   }
 
   const limitString = (str) => {
-    const length = 50;
+    const length = 40;
     return str.length > length - 3
       ? `${str.substring(0, length)}...`
       : str;
