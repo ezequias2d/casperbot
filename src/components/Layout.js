@@ -16,7 +16,16 @@ const Layout = () => {
     <>
       <Navbar bg="light">
         <Container>
-          <Navbar.Brand href="/">Casperbot</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img
+              alt=""
+              src="/robot.png"
+              width="32"
+              height="32"
+              className="d-inline-block align-top"
+            />{' '}
+            Casperbot
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             {
