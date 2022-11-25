@@ -77,7 +77,7 @@ const NewsModal = props => {
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.Name}</Modal.Title>
+          <Modal.Title>{props.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
